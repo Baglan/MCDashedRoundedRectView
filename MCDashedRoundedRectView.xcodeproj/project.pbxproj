@@ -12,6 +12,7 @@
 		861C84421D3A152100B090A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 861C84401D3A152100B090A0 /* Main.storyboard */; };
 		861C84441D3A152100B090A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 861C84431D3A152100B090A0 /* Assets.xcassets */; };
 		861C84471D3A152100B090A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 861C84451D3A152100B090A0 /* LaunchScreen.storyboard */; };
+		861C84501D3A154900B090A0 /* MCDashedRoundedRectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861C844F1D3A154900B090A0 /* MCDashedRoundedRectView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		861C84431D3A152100B090A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		861C84461D3A152100B090A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		861C84481D3A152100B090A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		861C844F1D3A154900B090A0 /* MCDashedRoundedRectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MCDashedRoundedRectView.swift; path = Classes/MCDashedRoundedRectView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +40,7 @@
 		861C84301D3A152100B090A0 = {
 			isa = PBXGroup;
 			children = (
+				861C844E1D3A153D00B090A0 /* Classes */,
 				861C843B1D3A152100B090A0 /* MCDashedRoundedRectView */,
 				861C843A1D3A152100B090A0 /* Products */,
 			);
@@ -62,6 +65,14 @@
 				861C84481D3A152100B090A0 /* Info.plist */,
 			);
 			path = MCDashedRoundedRectView;
+			sourceTree = "<group>";
+		};
+		861C844E1D3A153D00B090A0 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				861C844F1D3A154900B090A0 /* MCDashedRoundedRectView.swift */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				861C84501D3A154900B090A0 /* MCDashedRoundedRectView.swift in Sources */,
 				861C843F1D3A152100B090A0 /* ViewController.swift in Sources */,
 				861C843D1D3A152100B090A0 /* AppDelegate.swift in Sources */,
 			);
