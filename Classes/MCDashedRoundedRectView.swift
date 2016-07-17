@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-/// View with a dashed rounded rect outline. Pattern of the dashes is adjusted to fit nicely.
+/// UIView with a dashed rounded rect outline; pattern of the dashes is adjusted to fit nicely.
 @IBDesignable class MCDashedRoundedRectView: UIView {
     @IBInspectable var cornerRadius: CGFloat = 10 { didSet { setNeedsDisplay() } }
     
