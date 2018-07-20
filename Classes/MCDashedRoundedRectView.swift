@@ -67,16 +67,16 @@ import UIKit
      */
     @IBInspectable var phase: CGFloat = 0 { didSet { setNeedsDisplay() } }
     
-    override func drawRect(rect: CGRect) {
-        super.drawRect(rect)
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
         
         // Calculate rounded rect size for drawing to avoid clipping
         let offsetFromEdge = ceil(1 + strokeWidth / 2)
-        let roundedRect = CGRectMake(
-            offsetFromEdge,
-            offsetFromEdge,
-            bounds.width - offsetFromEdge * 2,
-            bounds.height - offsetFromEdge * 2
+        let roundedRect = CGRect(
+            x: offsetFromEdge,
+            y: offsetFromEdge,
+            width: bounds.width - offsetFromEdge * 2,
+            height: bounds.height - offsetFromEdge * 2
         )
         
         // Calculate corner radius to avoid overlap
@@ -104,49 +104,49 @@ import UIKit
         
         let path = UIBezierPath()
         // Start before the top left arc, drawing clockwise:
-        path.moveToPoint(CGPoint(x: pointA.x - radius, y: pointA.y))
+        path.move(to: CGPoint(x: pointA.x - radius, y: pointA.y))
         // Top left arc:
-        path.addArcWithCenter(
-            pointA,
+        path.addArc(
+            withCenter: pointA,
             radius: radius,
-            startAngle: CGFloat(M_PI),
-            endAngle: CGFloat(M_PI + M_PI / 2),
+            startAngle: CGFloat.pi,
+            endAngle: CGFloat.pi * 1.5,
             clockwise: true
         )
         // Top segment:
-        path.addLineToPoint(CGPoint(x: pointB.x, y: pointB.y - radius))
+        path.addLine(to: CGPoint(x: pointB.x, y: pointB.y - radius))
         // Top right arc:
-        path.addArcWithCenter(
-            pointB,
+        path.addArc(
+            withCenter: pointB,
             radius: radius,
-            startAngle: CGFloat(M_PI + M_PI / 2),
-            endAngle: CGFloat(2 * M_PI),
+            startAngle: CGFloat.pi * 1.5,
+            endAngle: CGFloat.pi * 2,
             clockwise: true
         )
         // Right segment:
-        path.addLineToPoint(CGPoint(x: pointC.x + radius, y: pointC.y))
+        path.addLine(to: CGPoint(x: pointC.x + radius, y: pointC.y))
         // Bottom right arc:
-        path.addArcWithCenter(
-            pointC,
+        path.addArc(
+            withCenter: pointC,
             radius: radius,
             startAngle: 0,
-            endAngle: CGFloat(M_PI / 2),
+            endAngle: CGFloat.pi / 2,
             clockwise: true
         )
         // Bottom segment:
-        path.addLineToPoint(CGPoint(x: pointD.x, y: pointD.y + radius))
+        path.addLine(to: CGPoint(x: pointD.x, y: pointD.y + radius))
         // Bottom left arc:
-        path.addArcWithCenter(
-            pointD,
+        path.addArc(
+            withCenter: pointD,
             radius: radius,
-            startAngle: CGFloat(M_PI / 2),
-            endAngle: CGFloat(M_PI),
+            startAngle: CGFloat.pi / 2,
+            endAngle: CGFloat.pi,
             clockwise: true
         )
-        path.closePath()
+        path.close()
         
         // Fill the path if necessary
-        if let fillColor = fillColor where isFilled {
+        if let fillColor = fillColor, isFilled {
             fillColor.setFill()
             path.fill()
         }
@@ -156,7 +156,7 @@ import UIKit
             path.lineWidth = strokeWidth
             
             // Dash and gap pattern
-            let pathLength = CGFloat(M_PI) * radius * 2 + roundedRect.width * 2 + roundedRect.height * 2 - radius * 8
+            let pathLength = CGFloat.pi * radius * 2 + roundedRect.width * 2 + roundedRect.height * 2 - radius * 8
             let patternLength = dashPattern.reduce(0) { (sum, value) -> CGFloat in return sum + value }
             if patternLength != 0 {
                 let numberOfPatterns = Int(round(pathLength / patternLength))
